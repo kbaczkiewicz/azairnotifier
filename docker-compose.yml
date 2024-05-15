@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./:/code
+    ports:
+      - "80:80"
+      - "1025:1025"
+    environment:
+      - DATABASE_URL=mongodb://db:27017/
+      - DATABASE_NAME=azair_notifier
+      - MAILING_SMTP_SERVER=smtp.gmail.com
+      - MAILING_PORT=465
+      - MAILING_SENDER_NAME=Azair Notifier
+      - MAILING_PASSKEY=xhqbmelcfptqatkz
+  db:
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
