@@ -16,7 +16,7 @@ class FlightSearch(BaseModel):
         return FlightSearch(
             email=values['email'],
             next_search=values['next_search'],
-            parameters=Parameters.from_dict(**values['parameters']),
+            parameters=[Parameters.from_dict(**params) for params in values['parameters']],
             unsubscribe_code=values['unsubscribe_code']
         )
 

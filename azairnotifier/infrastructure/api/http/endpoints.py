@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
 from dependency_injector.wiring import inject, Provide
-
 from azairnotifier.application.handler.queryhandler import \
     GetFlightSearchesQueryHandler, \
     GetFlightSearchesByParametersQueryHandler
